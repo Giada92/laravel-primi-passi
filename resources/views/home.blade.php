@@ -81,7 +81,27 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <h2>Ciao {{ $name }}!</h2>
+                    <p>Lista cose da fare:</p>
+                    @if (count($todolist) == 0)
+                        <small>Non ho nulla da fare</small>
+                    @elseif(count($todolist) == 1)
+                        <small>{{ $todolist[0] }}</small>
+                    @else
+                        <ul>
+                            @foreach ($todolist as $item)
+                                <li>
+                                    @if ($loop->odd)
+                                        <strong>
+                                    @endif
+                                    {{ $item }}
+                                    @if ($loop->odd)
+                                        </strong>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>      
+                    @endif
                 </div>
 
                 <div class="links">

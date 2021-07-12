@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = [
+        "name" => "Giada",
+        "todolist" => [
+            "Portare fuori il cane",
+            "Guardare Atipycal",
+            "Fare la spesa"
+        ]
+    ];
+    return view('home', $data);
+});
+
+Route::get('/contattaci', function () {
+    return view('contatti');
 });
